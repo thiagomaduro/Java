@@ -1,5 +1,6 @@
 package listaDeExercicios;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Conversao {
@@ -10,12 +11,19 @@ public class Conversao {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Conversão de Kwanza para Dólar");
-		System.out.print("Digite o valor em Kwanza que deseja converter em Dolár: ");
-		kw = scanner.nextDouble();
+		
+		try {
+			System.out.print("Digite o valor em Kwanza que deseja converter em Dolár: ");
+			kw = scanner.nextDouble();
+			dolar = kw * 400.0;
+			System.out.printf("O valor de Kwanza em Dólar é %.2f ", dolar);
+		} catch (InputMismatchException erro){
+			System.out.println("Você digitou um caracter incorreto. Tente novamente! " + erro);
+			} 
+	
 
-		dolar = kw * 400.0;
+			
 
-		System.out.println("O valor de Kwanza em Dólar é: " + dolar);
 
 		scanner.close();
 
